@@ -78,11 +78,11 @@ public class DigiCertOneSigningService implements SigningService {
      * @param keyManager the key manager to authenticate the client with the server
      */
     public DigiCertOneSigningService(String apiKey, X509KeyManager keyManager) {
-        this("https://clientauth.one.nl.digicert.com", apiKey, keyManager);
+        this("https://one.nl.digicert.com", apiKey, keyManager);
     }
 
     DigiCertOneSigningService(String endpoint, String apiKey, X509KeyManager keyManager) {
-        this.client = new RESTClient(endpoint + "/signingmanager/api/v1/")
+        this.client = new RESTClient(endpoint + "/api/v1/")
                 .authentication(conn -> {
                     conn.setRequestProperty("x-api-key", apiKey);
                     try {
