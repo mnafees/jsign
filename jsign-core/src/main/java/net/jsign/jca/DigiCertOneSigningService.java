@@ -78,7 +78,7 @@ public class DigiCertOneSigningService implements SigningService {
      * @param keyManager the key manager to authenticate the client with the server
      */
     public DigiCertOneSigningService(String apiKey, X509KeyManager keyManager) {
-        this("https://clientauth.one.digicert.com", apiKey, keyManager);
+        this("https://clientauth.one.nl.digicert.com", apiKey, keyManager);
     }
 
     DigiCertOneSigningService(String endpoint, String apiKey, X509KeyManager keyManager) {

@@ -59,25 +59,3 @@ jobs:
             !jsign-core/target/jsign-core-*-javadoc.jar
             !jsign-core/target/jsign-core-*-sources.jar
             !jsign-core/target/jsign-core-*-tests.jar
-
-      - name: Coverage report
-        if: ${{ matrix.java == '17' }}
-        run: mvn -B clean test jacoco:report-aggregate coveralls:report -DjacocoReports=jsign/target/site/jacoco-aggregate/jacoco.xml -DrepoToken=${{ secrets.COVERALLS_TOKEN }} || true
-
-  experimental:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: 'Set up Java EA'
-        uses: oracle-actions/setup-java@v1
-        with:
-          website: jdk.java.net
-          release: EA
-          cache: 'maven'          
-
-      - name: Build
-        run: |
-          mvn -version
-          mvn -B clean package || true
